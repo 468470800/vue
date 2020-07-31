@@ -1,0 +1,19 @@
+安装 Webpack
+在安装 Webpack 前，你本地环境需要支持 node.js。
+
+由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm，安装使用介绍参照：使用淘宝 NPM 镜像。
+
+使用 cnpm 安装 webpack：
+
+cnpm install webpack -g
+创建项目
+接下来我们创建一个目录 app：
+
+mkdir app
+
+下载安装webpack模块
+yarn add webpack --dev
+
+在packagea.json中配置一个脚本这个脚本用命令是 webpack会去当前的node_modules下找bin对应的webpack.js
+webpack.js需要当前目录下有个名字叫webpack.config.js文件我们 通过npm run build执行的目录是当前文件的目录
+所以回去当前目录下查找

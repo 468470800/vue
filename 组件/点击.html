@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击</title>
+</head>
+<body>
+    <div id="components-demo3" class="demo">
+        <button-counter2></button-counter2>
+        <button-counter2></button-counter2>
+        <button-counter2></button-counter2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        var buttonCounter2Data={
+            count:0
+        }
+        Vue.component('button-counter2',{
+            data: function () {
+                // data:{}
+                return{
+                    count:0
+                }
+            },
+            data: function(){
+               return buttonCounter2Data
+            },
+            template:'<button v-on:click="count++">点击{{count}}</button>'
+        });
+        new Vue({ el:"#components-demo3"})
+    </script>
+</body>
+</html>

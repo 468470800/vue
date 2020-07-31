@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{5+5}} <br>
+    {{ok ? 'YES' : 'NO'}} <br>
+    {{ message.split('').reverse().join('_') }}
+    <div  v-bind:id="'list-'+id">菜鸟教程</div>
+</div>
+<div id="sdd">
+    <p v-if="seen">v-if</p>
+</div>
+<div id="wdd" >
+    <p v-if="Math.random()>0.5">Sorry</p>
+    <div v-else>
+      Not  sorry
+    </div>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            ok:true,
+            message:'RUNOOB',
+            id:1
+        }
+    });
+
+    let vm = new Vue({
+        el:"#sdd",
+        data:{
+            seen:true,
+        }
+    })
+
+    new Vue({
+        el:"#wdd",
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>

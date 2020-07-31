@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定4</title>
+    <style>
+        .base{
+            width: 100px;
+            height: 100px;
+        }
+        .active{
+            background: #dd0000;
+        }
+        .text-danger{
+            background: #0aa770;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-bind:class="classObject"></div>
+</div>
+<script src="../vue.js"></script>
+<script>
+   new Vue({
+        el:'#app',
+        data:{
+            isActive:true,
+            error:{
+                value:true,
+                type:'false'
+            }
+        },
+        computed:{
+            classObject: function () {
+                return{
+                base:true,
+                    active: this.isActive && !this.error.value,
+                    'text-danger':this.error.value && this.error.type === 'fatal'
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

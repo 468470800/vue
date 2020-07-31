@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref</title>
+</head>
+<body>
+<div id="app">
+    <modal><h1>是否删除?</h1><p>亲确认删除吗??</p></modal>
+    <modal><p>删除确认</p></modal>
+</div>
+<template id="modal">
+    <!--    在模板中只能有一个 div-->
+    <div>
+        <slot>这是一个默认标题</slot>
+    </div>
+</template>
+<script src="../vue.js"></script>
+<script>
+    let modal = {
+        template:"#modal"
+    }
+</script>
+</body>
+</html>

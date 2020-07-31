@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../vue.js"></script>`
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="a">
+  {{msg}}
+  <!--  根据输入框的内容 算出一个错误 信息-->
+  <!--  当 给a赋值 影响了 错误信息改变-->
+</div>
+<script>
+    let vm = new Vue({
+        el:"#app",//获取id 的值
+        data:{
+            a:''
+            ,
+            msg:" "
+        },//声明一个a变量赋值空
+        watch:{//当值变了就会 触发 支持异步了其他    watch支持异步操作
+            a(newval,oldval){//wath属性名字要和观察 得人名字一致
+               setTimeout(()=>{if(newval.length<3){
+                   return this.msg = '太少 '
+               }else if(newval.length>6){
+                   return this.msg = '太多'
+               }this.msg = '';
+                   console.log(newval,oldval)},3000)
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

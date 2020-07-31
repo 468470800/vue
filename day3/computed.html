@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app1">{{'hello'| my}}</div>
+<div id="app2">{{'hello'| my}}</div>
+<div id="app">
+  <input type="checkbox"><br>
+  <input type="checkbox" v-for="product in products " v-model=""product.isSelected>
+</div>
+<script>
+  let vm = new Vue({
+      el:"#app",
+      computed:{
+          checkAll:{
+              get(){
+                  return this.products.every(item=>item.isSelected())
+              },
+              set(val){//val是给checkAll 赋值的时候传递时使用
+                  this.prodcts.forEach(item=>item.isSelected = val);
+              }
+         },
+      },
+      data:{
+          products:[{isSelected:true},{isSelected:true}]
+      },
+  });
+  Vue.filter('my',(data)=>{//全局过滤器
+      return 'jw'+data
+  })
+  new Vue({
+      el:"#app1",
+  });
+
+  new Vue({
+      el:"#app2",
+  });
+
+  // computed 计算属性不是方法、
+//方法不会有缓存 computed 会根据依赖(归vue管理数据可以响应变化)的属性进行缓存
+//   两个部分组成get set 不能只写set 一般情下
+
+</script>
+</body>
+</html>

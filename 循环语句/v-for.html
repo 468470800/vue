@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+</head>
+<body>
+<div id="app">
+    <teplate v-for="siste in sistes">{{siste.name}}>
+        <li>{{siste.name}}</li>
+        <li>--------------</li>
+    </teplate>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            sistes:[
+                {name:'今天很辛苦明天更辛苦，总有别人比你强比你努力'},
+                {name:"再见学校我来了社会 ！"}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

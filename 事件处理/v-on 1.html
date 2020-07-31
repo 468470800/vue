@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on 1</title>
+</head>
+<body>
+<div id="aff">
+    <button v-on:click="counter+=1">增加1</button>
+    <p  >点击这个按钮增加{{ counter }}次数</p>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#aff",
+        data:{
+            counter:0
+        }
+    })
+</script>
+</body>
+</html>

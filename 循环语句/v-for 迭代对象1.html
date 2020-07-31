@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for 迭代对象1</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="value of object">{{value}}</li>
+<!--        v-for of循环对象 value值  of 方法循环  object当前要循环的对象当前 每一项-->
+    </ul>
+</div>
+<script src="../vue.js"></script>
+<script>
+    let app = new Vue({
+        el:"#app",
+        data:{//在data里面定义
+            object:{
+                name:"名字",
+                url:"www.baidu.com",
+                solp:"你要好好学习多多写才能有思路"
+            }
+        }
+    })
+</script>
+</body>
+</html>

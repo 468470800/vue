@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>item</title>
+</head>
+<body>
+<!--父傳 子   父亲绑定一些事件儿子通融这个事件 贾昂传递过去  单项数据流父级穿给儿子再传给孙子儿子刷新-->
+<div id="app">
+    父亲 :{{money}}
+    <child :m="money" @child-msg="things"></child>
+</div>
+<script src="../vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{monet:400},
+        methods:{things(val){
+            console.log(val)
+            }},
+        components:{
+            child:{
+                props:['m'],
+                template:'<div>儿子:{{m}} <button @click="getMoney">要钱</button></div>',
+                methods: {
+                    getMoney(){
+                        this.$emit('child-msg',800);//触发自己自定义事件
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

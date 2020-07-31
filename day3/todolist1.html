@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+<!--  cdn 引入-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="app" >
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          todolist
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="contaier">
+    <div class="row">
+      <div class="col-md-7 col-md-offset-3">
+        <div class="panel panel-danger">
+          <div class="panel-heading ">
+            <h3 class="text-danger">亲今天有{{count}}事情要完成哦！</h3>
+            <input type="text" v-model="title" class="for-control" @keyup.13="add">
+        </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item" v-for="(todo,index) in todos">
+                <span :class="{del:todos.isSelected}"></span>
+                <input type="checkbox" v-cloak v-model="todo.isSelected" >
+                {{todo.title}}
+                 <button @click="remove(todo)" class="pull-right btn btn-danger btn-xs">&bigotimes;</button>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <ul class="nav nav-pills">
+              <li role="presentation"  class="dropdown" >
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  全部任务
+                </a>
+              </li>
+              <li role="presentation" >
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  已完成
+                </a>
+              </li>
+              <li role="presentation">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  未完成
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script src="../vue.js"></script>
+<script src="todo.js"></script>
+</body>
+</html>

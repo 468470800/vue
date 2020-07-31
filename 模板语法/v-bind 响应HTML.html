@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind响应HTML页面跳转</title>
+</head>
+<body>
+<div id="ass">
+    <pre><a v-bind:href="url">菜鸟教程</a></pre>
+</div>
+<script src="../vue.js"></script>
+<script>
+    let ass = new Vue({
+        el:"#ass",
+        data:{
+            url:"http://www.runoob.com"
+        }
+    })
+</script>
+</body>
+</html>

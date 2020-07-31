@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部组件</title>
+</head>
+<body>
+    <div id="app">
+        <handsome></handsome>
+        <handsome2></handsome2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        //局部组件 使用三部曲 1.创建组件 2.注册组件 3.引用组件
+        // 组件式独立的不能相互跨域组件中有生命周期函数
+        let obj = {school :'afzx'};// 如果组件共用了数据  会导致同时更新
+        // 组件不能直接调用理论上组件可以无限嵌套子组件可以调用父组件
+        let handsome = {template:"<div>组件1</div>"};
+        let handsome2 = {template:"<div>组件2</div>"};
+        let component1 = {
+            template:`<div @clcik="fn">组件1{{school}}</div>`,
+            data(){
+                return obj
+            },
+            method:{
+                fn(){
+                    this.school='hello'
+                }
+            }
+        };
+        let vm = new Vue({
+            el:"#app",
+            components:{
+                handsome,
+                handsome2,
+            },
+            data:{
+                a:1,
+            }
+            ,
+
+        })
+    </script>
+</body>
+</html>

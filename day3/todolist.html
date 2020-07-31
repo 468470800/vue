@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .del{text-decoration: line-through;color:#f0efef!important;}
+
+  </style>
+  <title>Document</title>
+</head>
+<body>
+<div id="app">
+  <!--导航-->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          ToDoList
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="col-md-7 col-md-offset-3">
+    <div class="panel panel-warning " >
+      <div class="panel-heading">
+        <h2 class="text-danger" >你要好好学习{{unt}}自信人生二百年回荡积水三千里</h2>
+        <input type="email" class="form-control" id="exampleInputEmail1" v-model="title"  @keyup.13="add">
+      </div>
+      <div class="panel-body">
+        <!--      内容-->
+        <div class="panel panel-default  ">
+          <div class="panel-body" v-cloak v-for="(todo,index) in  filterTodos" @dblclick="remember(todo)">
+            <!--            如果 name为true则是data生效-->
+            <input type="checkbox"  v-model="title">
+            <span :class="{del:todo.name}" v-show="cur!=todo">
+             {{todo.title}}
+            </span>
+            <input type="text" v-model="todo.title" v-show="cur==todo">
+            <button @click="remove(todo)" class="pull-right btn  btn-danger btn-xs">&bigotimes;</button>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <ul class="nav nav-pills">
+            <li role="presentation" :class="{active:hash==='all'}"><a href="#/all">全部任务</a></li>
+            <li role="presentation"  :class="{active:hash==='finsh'}"><a href="#/finsh"  >已完成</a></li>
+            <li role="presentation"  :class="{active:hash==='unfinsh'}"><a href="#/unfinsh"  >未完成</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script src="../vue.js"></script>
+<script>
+  //第一步  渲染到页面
+    vm = new Vue({
+        el:"#app",
+       data:{///数据渲染
+           todos: [
+               {name:false,title:"书院轲先生 柯疯子 浩然正气 最猛小师叔柯浩然"},
+               {name:false,title:"别失望别回头别后悔"},
+               {name:false,title:"上天可否逆如今尚未知，古有愚公移山人定胜天"},
+               {name:false,title:"不管做什么事情你都要付出你的心血，把自己投入到沼泽里来翻来覆去融入进去"},
+               {name:false,title:"西方有蝉匿于泥间二十三年，待雪山冰容洪水至方始苏醒，于泥水间沐浴寒风间亮翅，振而飞破虚空"},
+               {name:false,title:"不疯魔不成活"},
+           ],
+           title:"",
+           cur:""
+       },//input事件添加
+        methods:{
+            add(){
+                this.todos.push({
+                    name:false,
+                    title:this.title
+                });
+                this.title = '';
+            },
+            remove(todo){
+                // alert(1)
+                this.todos = this.todos.filter(item=>item!==todo)
+            },
+            remember(todo){//当前点击 这一项
+                this.cur = todo;
+            },
+
+        },
+        //计数
+        computed:{
+            filterTodos(){
+              if(this.hash === 'all') return this.todos;
+              if(this.hash === 'finish') return this.todos.filter(item=>item.name);
+              if(this.hash === 'unfinish') return this.todos.filter(item=>!item.name);
+              return this.todos;
+            },
+            count(){
+              return this.todos.filter(item=>!item.name).length;
+            },
+            unt(){
+                return this.todos.filter(item=>!item.name).length;
+            }
+        },
+      created(){//ajax 获取初始化 数据
+            this.todos = JSON.parse(localStorage.getItem('data'))||this.todos;//如果localStorage 中有数据没有就默认
+          //监控hash值得变化，如果有了刷新页面 变化
+          this.hash = window.location.hash.slice(2) || 'all';
+          window.addEventListener('hashchange',()=>{
+              //当hash值变化 重新操作数据做记录
+              this.hash = window.location.hash.slice(2) ;
+          },false)
+      }
+    })
+</script>
+</body>
+</html>

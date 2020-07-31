@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue基础</title>
+</head>
+<body>
+<div id="app">
+    <p>{{msg}}</p>
+</div>
+<div id="vue_det">
+    <h1>site:{{site}}</h1>
+    <h1>url:{{url}}</h1>
+    <h1>{{details()}}</h1>
+</div>
+<script src="vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+          msg:'渲染数据'
+        }
+    });
+
+    var vw = new Vue({
+        el:"#vue_det",
+        data:{
+            site:"菜鸟教程",
+            url:"wwww.runoob.com",
+            alexa:"10000"
+        },
+        methods:{
+            details:function () {
+                return this.site+"菜鸟教程不仅是技术而且还是梦想！"
+            }
+        }
+    })
+</script>
+</body>
+</html>

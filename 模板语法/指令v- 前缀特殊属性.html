@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令用于在表达式的值改变时，将某些行为应用到 DOM 上</title>
+</head>
+<body>
+<div id="app">
+    <p v-if="seen">现在看到我了</p>
+<!--    V-IF判断      标签里面的元素有还是没有  true 有   false无-->
+    <template v-if="ok">
+        <h1>菜鸟教程</h1>
+        <p>学习不仅是技术，更是梦想 ！</p>
+        <p>打字辛苦月薪过万</p>
+    </template>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            seen:true,//v--if 标签包裹里面的元素 v-if判断 true 有   false 无
+            ok:true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件</title>
+</head>
+<body>
+<!--注册一个全局组件语法格式如下：-->
+
+<!--Vue.component(tagName, options)-->
+<!--tagName 为组件名，options 为配置选项。注册后，我们可以使用以下方式来调用组件：-->
+
+<!--<tagName></tagName>-->
+<div id="app">
+    <runoob></runoob>
+</div>
+<script src="../vue.js"></script>
+<script>
+    Vue.component('runoob',{
+        template:'<h1>自定义组件 </h1>'
+    })
+    //创建根实例、
+    new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

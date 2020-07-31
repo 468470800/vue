@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lifecyle</title>
+</head>
+<body>
+<script src="../vue.js"></script>
+<script>
+    // beforecreate  created  beforMounte mounted  befor
+    const vm = new Vue({//根据实例初始化时会调用很多方法啊(钩子函数)
+        el:"#add",
+        data:{
+          a:1,
+            b:''
+        },
+        beforeCreate(){//此方法用不到
+            // debugger;//创建停住
+        },
+        created(){},//获取ajax初始化操作
+        beforeMount(){
+            alert(1)
+        },
+        template:"<div>{{a}}</div>",
+        mount() {//真实dom渲染完了可以操作dom
+        },
+        beforeUpdate(){//更新前
+        //一般用watch来替换掉
+        },
+        Updated(){//更新后
+             },
+          beforeDestroy(){
+            alert('销毁前')
+          }  ,
+          destroy(){
+            alert('销毁后')
+          }
+    });
+    vm.$mount("#app");//要保障有编译元素
+</script>
+</body>
+</html>

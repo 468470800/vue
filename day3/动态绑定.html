@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态绑定</title>
+</head>
+<body>
+<!--默认情况下相同的dom会被复用-->
+<!--v-if/v-show  v-if操作的是dom v-if可以v-else , v-else连写-->
+<!--v-show操作样式-->
+<div id="app">
+  <div v-if="false">一方通行</div>
+  <div v-if="false">犬夜叉</div>
+  <template v-show="falg">
+    <div>桔梗</div>
+    <div>桔梗</div>
+    <div>桔梗</div>
+  </template>
+  <template v-else="true">
+    <div>犬夜叉</div>
+    <div>犬夜叉</div>
+    <div>犬夜叉</div>
+  </template>
+  <button @click="cut=!cut">点击我</button>
+  <br>
+  <template v-if="cut">
+    <label >注册</label>
+    <input type="text" key="1">
+    <div>桔梗</div>
+    <div>桔梗</div>
+    <div>桔梗</div>
+  </template>
+  <template v-else>
+    <label>登录</label>
+    <input type="text" key="2">
+    <div>犬夜叉</div>
+    <div>犬夜叉</div>
+    <div>犬夜叉</div>
+  </template>
+</div>
+<script src="../vue.js"></script>
+<script>
+
+  let vm = new Vue({
+      el:"#app",
+      data:{
+          cut:true,
+          flag:false
+      }
+  });
+  //v-bind="";
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for指令</title>
+</head>
+<body>
+<div id="ass">
+    <dl>
+        <dt v-for="siste in sistes">
+<!--            v-for循环语法 siste值  in 循环  sistes循环的对象数组-->
+            {{siste.title}}
+        </dt>
+    </dl>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:'#ass',
+        data:{
+            sistes:[
+                {name:false,title:"Vue"},
+                {name:false,title:"React"},
+                {name:false,title:"RUNOOB"}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

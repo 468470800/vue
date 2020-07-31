@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eventBut</title>
+</head>
+<body>
+    <div id="app">
+        <brother1></brother1>
+        <brother2></brother2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let EventBus = new Vue;//建一个中转站 不需要产参数
+        let brother1 = {
+            template:'<div>{{color}}<button>绿色</button></div>',
+            data(){
+                return {color :"绿色",old:"绿色"}
+            },
+            methods(){
+              EventBus.$emit('changGreen',this.old)
+            },
+            created(){
+                this.$on('changeRed',(val)=>{//页面加载 回调函数
+                    this.color = val;
+                })
+            }
+        };
+        let brother2 = {
+            template:"<div>红色 <button>变红</button></div>",
+            data(){
+                return {color:"红色 ",old:"红色"}
+            },
+            created(){
+              EventBus.$on('changeGreen',(val)=>{
+                  this.color = val;
+              })
+            },
+           methods:{
+                change(){
+                    this.$emit('changeRed',this.old)
+                }
+           }
+        };
+        let vm = new Vue({
+            el:"#app"   ,
+            components:{
+                brother1,
+                brother2,
+            }
+        })
+    </script>
+</body>
+</html>

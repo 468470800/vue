@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例上的方法</title>
+</head>
+<body>
+<div id="app">
+    <p ref="myp">{{msg}}</p>
+    <div v-for="i in arr" ref="mydiv">{{i}}</div>
+    <div id="wrap">
+        <div v-for="a in arr" ref="mydiv">{{a}}</div>
+    </div>
+</div>
+<script src="../vue.js"></script>
+<script>
+    // this.$watch 监控
+    // this.$data vm 上的数据
+    // this.$el当前el元素
+    // this.$set 后加的属性实现响应式变化
+    // this.$options vm所有属性
+    // this.$nextTick(()=>{//异步方法等待dom渲染完成之后会出来
+    //     console.log(vm)
+    // })
+    let vm = new Vue({
+        el:"#app",
+        data:{msg:"berforeUpdate,updated" ,arr:[666,777,888]},
+        mounted(){
+         console.log(this.$refs.mydiv);//如果不是通过v-for获取出来 的是循环不出来的v-for可以渲染出多个
+         this.arr=[6,7,8,9,0];
+         this.$nextTick(()=>{
+           console.log(this.$refs.wrap);
+           debugger;
+       })
+        },
+        // mounted(){
+        //     // this.$refs
+        //     console.log(this.$options)
+        // },
+    })
+    console.log(vm.$options)
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for 迭代对象</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="value of object">{{value}}</li>
+    </ul>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            object:{
+                name:"菜鸟教程",
+                url:"http//:www.runoob.com",
+                slogan:"学习不仅是技术，更是梦想未来金钱月薪过万"
+            }
+        }
+    })
+</script>
+</body>
+</html>

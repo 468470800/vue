@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>child-methods</title>
+</head>
+<body>
+<div id="app">
+    <loading></loading>
+</div>
+<script src="../vue.js"></script>
+<script>
+    //父组件调用组件方法
+    let loading = {
+        template:'<div>疯狂加载</div>'
+    };
+    let vm = new Vue({
+        el:"#app",
+        data:{},
+        components:{
+            loading
+        }
+    })
+</script>
+</body>
+</html>

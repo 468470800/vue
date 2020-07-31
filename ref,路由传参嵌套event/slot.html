@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+</head>
+<body>
+<div id="app">
+    <modal name="1">
+        <a href="http://www.baidu.com">百度</a>
+        <h1 slot="title">是否删除?</h1>
+        <p slot="content" @click="fn">十赌九输</p>
+        <a href="http://www.baidu.com">百度</a>
+    </modal>
+    <modal><h4>确认删除?</h4></modal>
+</div>
+<template id="modal">
+    <div>
+        <solt name="title">默认标题</solt>
+        <slot namw="content">默认内容 </slot>
+        <slot  name="default">我是一个默认标题</slot>
+    </div>
+<!--    <div></div>   模板中只能有一个根元素、-->
+<!--    slot  中可以防止一些默认内容如果传递了内容则替换掉-->
+<!--    如果没有名字标签会默认放置到根元素default中-->
+</template>
+<script src="../vue.js"></script>
+<script>
+    let modal = {
+      template:"#modal",
+        methods:{
+          fn(){alert(11)}
+        }
+    };
+    let vm = new Vue({
+        ela:'#app',
+        components:{
+            modal,
+            fn(){alert(1)}
+        },
+        data:{}
+    })
+
+</script>
+
+
+
+</body>
+</html>

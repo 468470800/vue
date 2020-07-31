@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例2</title>
+</head>
+<body>
+<div id="add">
+    <p>siste:{{siste}}</p>
+    <p>url:{{url}}</p>
+    <h6>{{details()}}</h6>
+</div>
+<script src="../vue.js"></script>
+<script>
+   var vm =  new Vue({
+        el:"#add",
+        data:{
+            siste:"今天有梦想努力明天会更好",
+            url:"www.baodu.com",
+        },
+        methods:{
+            details: function(){
+              return this.siste+"学习不仅是技术！更是梦想"
+          }
+        }
+    })
+</script>
+</body>
+</html>

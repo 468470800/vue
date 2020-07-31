@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html指令</title>
+</head>
+<body>
+<div id="app">
+    <div v-html="message"></div>
+<!--    v-html解析标签输出  =“差值内容”-->
+    <div v-text="metext"></div>
+<!--    v-text=“不解析解析文本原样输出”-->
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue ({
+       el:"#app",
+       data:{
+           message:"<h1>v-html</h1>",
+           metext:"<h2>v-text</h2>"
+       }
+    })
+</script>
+</body>
+</html>

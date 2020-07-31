@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例5</title>
+</head>
+<body>
+
+<div id="app">
+    <div v-bind:style="{color:activeColor, fontSize:fontSize+'px'}">菜鸟教程</div>
+<!--   v-bind:动态绑定获取style里面的内容值 ， 样式语法逻辑-->
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            activeColor:"red",//通过v-bind:绑定数据操作DOM来实现
+            fontSize:35,//字体大小
+        }
+    })
+</script>
+</body>
+</html>

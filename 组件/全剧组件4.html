@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件4</title>
+</head>
+<body>
+<div id="app">
+    <runoob></runoob>
+</div>
+<script src="../vue.js"></script>
+<script>
+    Vue.component('runoob',{
+        template:"<h5>自定义全局组件</h5>"
+    })
+    new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

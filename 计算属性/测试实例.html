@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试实例</title>
+</head>
+<body>
+<div id="app">
+    {{message.split('').reverse().join(' ')}}
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            message:"VUE"
+        }
+    })
+
+
+</script>
+<script>
+
+    str = "Line1-abcdef \nLine2-abc \nLine4-abcd";
+    print=str.split( );
+    print=str.split(' ', 2 );//截取字符串的长度
+    console.log(print)
+</script>
+</body>
+</html>

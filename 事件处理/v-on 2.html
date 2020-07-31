@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="greet">Greet</button>
+</div>
+<script src="../vue.js"></script>
+<script>
+    let app = new Vue({
+        el:"#app",
+        data:{
+            name:"Vue.js"//methods对象中定义方法
+        },
+        methods:{
+            greet: function (event) {
+               //'this'在方法里指当前  vue 实例
+               console.log('Hello'+this.name+"!") ;
+               if(event){//'event'是原生  DoM事件
+                   console.log(event.target.tagName)
+               }
+            }
+        }
+    });
+    app.greet();//也可以用javascript直接调用 方法
+</script>
+</body>
+</html>

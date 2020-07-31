@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>panel</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="app">
+            <panel type="warning">
+                <div slot="title">这是一篇 vue使用</div>
+                <div slot="content">
+                    内容区
+                    <p>组件的属性传递</p>
+                    <p>slot的用法</p>
+                    <p>nextTick用法</p>
+                </div>
+                <div >作者:XXX</div>
+            </panel>
+            </div>
+         <template id="panel">
+<!--             起一个id名字 再传入到组件上再到template-->
+             <div class="panel" :class="['panel-'+type]">
+            <div class="panel-heading">
+                <slot name="title"></slot>
+            </div>
+            <div class="panel-body">
+                <slot name="content"></slot>
+            </div>
+            <div  class="panel-footer">
+                <slot></slot>
+                <button>点我说标题</button>
+                </div>
+             </div>
+         </template>
+<script src="../vue.js"></script>
+<script>
+    let panel = {//创建一个组件 id
+      template:"#panel",//再传入你起div的名字
+        props:{//this.type = 'warning'
+            // type:[String],//属性
+            // default:'default'
+            created:{
+               color(){return 'panel-'+this.type}
+            },
+            type:{//this.type = 'panel'+this.type子组件不能改变父组件上传递的属性
+                type:[String],
+                default:'default'
+            }
+        }
+    };
+    let vm = new Vue({
+        el:"#app",
+        components:{//注册  对象
+            panel//在传入到里面
+        }
+    })
+</script>
+</body>
+</html>

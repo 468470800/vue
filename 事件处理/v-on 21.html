@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="green">点击事件</button>
+    <!--    'greet'是在下面定义的方法名-->
+</div>
+<script src="../vue.js"></script>
+<script>
+    // v-on 可以接收一个定义的方法来调用。
+    const app = new Vue({
+        el:"#app",
+        data:{
+            name:"vue.js"
+        },
+        // 在 'methods'对象方法 中定义
+        methods:{
+          green: function(event){
+              // 'this'在方法里指当前 vue实例
+              console.log('HELLO' + this.name +'!');
+              //'event' 是原生 DOM事件
+              if(event){
+                  console.log(event.target.tagName)
+              }
+          }
+        }
+    });//也可以javascript直接 调用 方法
+    app.greet();//'Hello Vue.js'
+</script>
+</body>
+</html>

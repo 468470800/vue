@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串第一个字母转为大写：</title>
+</head>
+<body>
+<div id="app">{{message | capitalize}}</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            message:"runoob"
+        },
+        filters:{
+            capitalize: function (value) {
+                if(!value) return'',
+                value = value.toString();
+                return value.charAt(0).toUpperCase()+value.slice(1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

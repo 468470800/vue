@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if v-else</title>
+</head>
+<body>
+<div id="app">
+    <div v-if="type === 'a'">a</div>
+<!--    v-if条件语句他的type值全等于a的-->
+    <div v-else-if="type === 'b'">b</div>
+<!--    v-else-if他的type值全等于b  承接上一句话的内容到下一句来 -if-->
+    <div v-else-if="type === 'c'">c</div>
+    <div v-else>Not a/b/c</div>
+<!--    这句话表示结束、-->
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            type:'c'
+        }
+    })
+</script>
+
+</body>
+</html>

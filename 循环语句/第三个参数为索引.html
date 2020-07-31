@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第三个参数为索引</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(value,key,index) in object">
+            {{index}}.{{key}}:{{value}}
+        </li>
+    </ul>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            object:{
+                name:'菜鸟教程',
+                url:"http://www.runoob.com",
+                slogan:"学习不仅是技术，更是梦想！"
+            }
+        }
+    })
+</script>
+</body>
+</html>

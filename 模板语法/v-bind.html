@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <style>
+        .class1{
+            background: #6eccf0;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div id="add"><label for="fr1">点击变颜色</label><input type="checkbox"  id="fr1" v-model="use"><br>
+    <div v-bind:class="{'class1':use}">
+        v-bind:calss
+    </div>
+</div>
+<div id="edd"><label for="fr2">点击变色</label><input type="checkbox" id="fr2" v-model="user"><br>
+    <div v-bind:class="{'class1':user}">V-bind :class v-model</div>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#add",
+        data:{
+            use:false,
+        }
+    })
+
+    new Vue({
+        el:"#edd",
+        data:{
+            user:true,
+        }
+    })
+
+
+</script>
+</body>
+</html>

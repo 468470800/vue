@@ -1,0 +1,7 @@
+安装
+.....
+npm init -y                 初始化
+npm install vue vue-router axios bootstrap
+或者用  yarn add vue vue-router axios bootstrap  下载也可以
+.................
+

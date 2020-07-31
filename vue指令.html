@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue指令</title>
+    <style>
+        .class1{
+            background: #0c0c0c;
+            color:#ffffff;
+        }
+    </style>
+</head>
+<body>
+<!--V-HTML-->
+<div id="app">
+    <div v-html="message"></div>
+</div>
+<div id="add">
+    <label for="r1">修改颜色</label>
+    <input type="checkbox" v-model="use" id="r1">
+    <div v-bind:class="{'class1':use}">
+        v-bind:class
+    </div>
+</div>
+<!--v-model双向数据绑定-->
+<!--v-bind-->
+<div id="eed">
+    <label for="fr2">修改颜色</label>
+    <input type="checkbox" id="fr2" v-model="hre">
+    <div v-bind:class="{'class1':hre}">
+        edd
+    </div>
+</div>
+<script src="vue.js"></script>
+<script>
+  new Vue({
+      el:"#app",
+      data: {
+          message:"<h1>菜鸟教程</h1>"
+      }
+  });
+//   HTML 属性中的值应使用 v-bind 指令。
+  // 以下实例判断 use 的值，如果为 true 使用 class1 类的样式，否则不使用该类：
+    new Vue({
+        el:"#add",
+        data:{
+            use:false
+        }
+    })
+
+    new Vue({
+        el:"#eed",
+        data:{
+            hre:true
+        }
+    })
+</script>
+</body>
+</html>

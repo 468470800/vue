@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态切换多个 class</title>
+    <style>
+        .active{
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+        }
+        .text-danger{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="static" v-bind:calss="{ 'active':isActive,'text-danger':hasError}">111</div>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            hasError:true,
+        }
+    })
+</script>
+</body>
+</html>

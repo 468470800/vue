@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind: object</title>
+</head>
+<body>
+<div id="app">
+    <div v-bind:style="styleObject">菜鸟教程</div>
+<!--    v-bind: 需要改变的值  style="改变 的 样式“-->
+</div>
+<script src="../vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:"#app",//选中 div选择器 id  class
+        data:{//data:中定义数据
+            styleObject:{//找到v-bind:绑定要改变的元素
+                color:'red',//元素必须用双引号标起来
+                fontSize:'46px',//
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+</head>
+<body>
+<div class="app"><a v-bind:href="url">百度</a></div>
+<!--v-bind绑定属性元素标签超链接  的动态绑定-->
+<!--    v-bind:key源码分析-->
+<!--v-bind:title源码分析-->
+<!--v-bind:class源码分析-->
+<!--v-bind:style源码分析-->
+<!--v-bind:text-content.prop源码分析-->
+<!--v-bind的修饰符.camel .sync源码分析-->
+
+<!--作者：趁你还年轻233-->
+<!--链接：https://www.jianshu.com/p/cc051b533eb7-->
+<!--来源：简书-->
+<!--著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。-->
+
+<script src="vue.js"></script>
+<script>
+    var app = new Vue({
+        el:".app",
+        data:{
+            url:"http://www.baidu.com"
+        }
+    });
+
+
+</script>
+<br>
+
+
+<div id="app">
+    <p v-bind:title="doubi">html属性不能使用双大括号形式绑定，只能使用v-bind指令v-bind是指令，title是参数，doubi是预期值。</p>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            doubi: 'title content'
+        },
+    });
+
+
+</script>
+
+</body>
+</html>

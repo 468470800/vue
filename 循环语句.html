@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环语句</title>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <li v-for="siste in sistes">{{siste.name}}</li>
+    </ol>
+</div>
+        <div id="aqq">
+           <ul>
+               <template v-for="sit in site">
+                   <li >{{sit.name}}</li>
+                   <li>------------------------</li>
+               </template>
+           </ul>
+        </div>
+<div id="edd">
+    <ul>
+        <li v-for="(value,key) in object">
+            {{key}} : {{value}}
+        </li>
+    </ul>
+</div>
+
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            sistes:[
+                {name:"Racte"},
+                {name:"Vue"},
+                {name:"angule"}
+            ]
+        }
+    });
+    new Vue({
+        el:"#aqq",
+        data:{
+            site:[
+                {name:"RUNOOB"},
+                {name:"Google"},
+                {name:"TAOBAO"},
+            ]
+        }
+    })
+    new Vue({
+        el:"#edd",
+       data:{
+           object:{
+               name:"菜鸟教程",
+               url:"http://www.runoob.com",
+               slogan:"学的不仅是技术，更是梦想！"
+           }
+       }
+    })
+</script>
+</body>
+</html>

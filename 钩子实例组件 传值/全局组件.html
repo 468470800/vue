@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件</title>
+</head>
+<body>
+<div id="app">
+    <my-Handspme></my-Handspme>
+<!--    组件名字-->
+    <div>我很英俊  <span>ssd</span></div>
+</div>
+
+<!--组件分类  页面级组件  可复用组件   基础组件-->
+<!--  提高开发率    便于复用 容易管理维护  自定义标签 vue  组件标签div p ul li dldtdd h1-->
+<!--...,,在vue中可以跟这些标签-->
+
+<script src="../vue.js"></script>
+<script>
+    // 组件不要带有大小写字母多个单词用-
+    // 组件可以调用组件名字
+    // html 横线隔开
+    Vue.component('my-Handspme',{//我可以看成一对象组件
+       template:'<div>我很无聊</div>',//插件
+        data(){
+           //在全局组件中 的数据时候的是对象
+            return{
+                //这才是数据对象
+            }
+        }
+    });
+    //组件用法问题   全局组件在全局里面任何地方都可以调用  只能声明一次   一般插件问题全局组件会多一些 全局组件声明在类上
+
+    let vm = new Vue({
+        el:"#app",
+
+    })
+</script>
+</body>
+</html>

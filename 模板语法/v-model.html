@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+</head>
+<body>
+<div id="aqq">
+    <p>{{message}}</p>
+    <input v-model="message">
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#aqq",
+        data:{
+            message:"Runoob"
+            //双项数据绑定  绑定的输入框元素 绑定输入的值标签{{}}data:{对象定义 }
+        }
+    })
+</script>
+</body>
+</html>

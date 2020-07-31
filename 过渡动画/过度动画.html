@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过度动画</title>
+    <style>
+    /*// 可以设置不同动画进入离开设置时间持续动画函数*/
+    .fade-enter-active, .fade-leave-active {
+      transition:opactiy 2s
+    }
+    .fade-eter, .fade-leave-to{
+        /*.fade-leave-active,2.1.8版本以下*/
+        opacity: 0;
+    }
+</style>
+</head>
+<body>
+<div id="databinding">
+    <button v-on:click="show = !show">点 击</button>
+    <transition name="fade" >
+        <p v-show="show" v-bind:style="styleobj">动画实例</p>
+    </transition>
+</div>
+<script src="../vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:"#databinding",
+        data:{
+            show:true,
+            styleobj:{
+                fontSize:'30px',
+                color:'red'
+            }
+        },
+        methods:{
+
+        }
+    })
+</script>
+
+</body>
+</html>

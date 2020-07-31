@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>day3</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div @click.capture="parent">parent
+      <div @click.once="child">child
+<!--        .stop停止冒泡事件-->
+<!--        capture 事件捕获-->
+        <div @click.captrure="greandson">grandson
+        </div>
+        <a href="http://wwww.baodu.com" @click="parent">百度</a>
+    </div>
+      <a href="http://www.taobao.com" @click="parent">淘宝网</a>
+    </div>
+</div>
+<script>
+  let vm = new Vue({
+      el:"#app",
+      methods:{
+          // parent()事件冒泡
+        parent:function () {
+            alert('parent')
+        } ,child(){
+            alert('child')
+          } ,greandson(e){//穿个参数
+            alert('greandson');e.cancelBubble=true;//阻止冒泡e.stoPropagation()
+          }
+      },
+      data:{}
+  })
+</script>
+</body>
+</html>

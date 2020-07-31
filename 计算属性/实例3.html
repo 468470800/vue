@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例3</title>
+</head>
+<body>
+<div id="att">
+    <p>原始字符串:{{message}}</p>
+    <p>计算后翻转字符串:{{reverseMessage}}</p>
+    <p>使用方法计算翻转字符串:{{reverseMessage2()}}</p>
+</div>
+<script src="../vue.js"></script>
+<script>
+var vm  = new Vue({
+    el:"#att",
+    data:{
+        message:"Runoob!"//第一行输出原始字符串
+    },
+    computed:{
+        //计算属性的 getter
+        reverseMessage: function () {
+            //this  指向 vm  实例
+            return this.message.split('').reverse().join('/')
+        }
+    },
+    methods:{
+        reverseMessage2: function () {
+            return this.message.split('').reverse().join('*')
+        }
+    }
+})
+</script>
+</body>
+</html>

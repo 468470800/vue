@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+</head>
+<body>
+<div id="app">
+    <p v-if="seen">现在你看到我了</p>
+    <template v-if="ok">
+<!--        v-if判断 -->
+        <h1>菜鸟教程</h1>
+        <h1>雪得不仅是技术更是梦！</h1>
+        <h1>哈哈 ， 打字辛苦</h1>
+    </template>
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            seen:true,
+            ok:false,//切换true false  true有  false没有
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="a">
+  {{msg}}
+<!--  根据输入框的内容 算出一个错误 信息-->
+<!--  当 给a赋值 影响了 错误信息改变-->
+</div>
+<script>
+  let vm = new Vue({
+      el:"#app",//获取id 的值
+      data:{
+          a:''
+      },//声明一个a变量赋值空
+      computed:{//数据
+          msg(){
+              if(this.a.length<3){//input的值内容少于三 个字 或者大于6个字长度
+                  return '少了';
+              }
+              if(this.a.length >6){
+                  return '多了'
+              }
+                  return '';//最后返回空
+          }
+      }
+  });
+
+  // let vm = new Vue({
+  //     el:"#app",
+  //     computed:{
+  //       a:{//如果写了set()方法 并且val给了别人当前的a就不会被赋予结果了
+  //           get(){
+  //               return this.msg;
+  //           },
+  //           set(val){
+  //               this.msg = val;
+  //           }
+  //       }
+  //     },
+  //     data:{
+  //         msg:''
+  //     }
+  // })
+</script>
+
+</body>
+</html>
